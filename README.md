@@ -41,8 +41,8 @@ Default options are as follows:
  ```
  
 ### Troubleshooting
- Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready in order to hear the voices.
- Make sure you've signed up for [Google Text-To-Speech Console](https://console.cloud.google.com/) and [OpenAI ChatGPT API](https://platform.openai.com/account/api-keys) access systems and inserted your API keys.
+ - Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready in order to hear the voices.
+ - Make sure you've signed up for [Google Text-To-Speech Console](https://console.cloud.google.com/) and [OpenAI ChatGPT API](https://platform.openai.com/account/api-keys) access systems and inserted your API keys.
 
 ### Available Voices (en-US)
  - en-US-Neural2-A (thru J)
