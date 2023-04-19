@@ -35,7 +35,7 @@ Default options are as follows:
  2. Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the path of the PHP file. 
  3. Chmod `chmod +x ./ai` to make the `ai` file runnable.
  4. Copy `sudo cp ./ai /usr/local/bin` the file to your bin folder.
- 5. Now you can use it anywhere in your Terminal: `$ ai 'Write me an essay...'`
+ 5. Now you can use it anywhere in your Terminal: `$ ai write me a program about love`
  
 ### Troubleshooting
  Please make sure you have `afplay` or equivalent for the play() function to work properly. You may want to replace the commands on lines 117 & 119 with your own system's choice command-line audio player.
