@@ -60,4 +60,4 @@ Just run the PHP script with regular PHP notation.
  - Use `--voices` to view the full list of English voices.
  - Additional voices & languages can be found and tried on [Google's TTS Demo](https://cloud.google.com/text-to-speech).
 
-Please send love and feedback! :)
+Please send love and feedback! :) [@bentbot](http://liamhogan.ca)
