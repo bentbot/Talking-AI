@@ -1,0 +1,2 @@
+#!/bin/bash
+php FULL_PAITH_TO_THIS_DIR_FILE/Speaking\ AI.php "$1" 1 1 1 "en-US-Neural2-H";
