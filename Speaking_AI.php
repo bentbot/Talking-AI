@@ -21,7 +21,7 @@ for($i = 1; $i < $argc; $i++) {
 $prompt = isset($filters[0])?$filters[0]:false;
 $pitch = isset($filters[1])?$filters[1]:0.7;
 $speakingRate = isset($filters[2])?$filters[2]:0.3;
-$volume = isset($filters[3])?$filters[3]:1;
+$volume = isset($filters[3])?$filters[3]:0.5;
 $voice = isset($filters[4])?$filters[4]:'en-US-Studio-M';
 $language = isset($filters[5])?$filters[5]:'en-us';
 if(!$prompt) {
@@ -117,7 +117,7 @@ function read($text,$language,$voice,$pitch,$speakingRate) {
 }
 
 function play($filename) {
-	$volume = isset($filters[3])?$filters[3]:1;
+	$volume = isset($filters[3])?$filters[3]:0.5;
 	if(isset($volume)) {
 		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 			$cmd="ffplay -v 0 -volume ".$volume." -nodisp -autoexit ".$filename;
@@ -126,9 +126,9 @@ function play($filename) {
 		}
 	} else {
 		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-			$cmd="ffplay -v 0 -volume 1 -nodisp -autoexit ".$filename;
+			$cmd="ffplay -v 0 -volume 0.5 -nodisp -autoexit ".$filename;
 		} else {
-			$cmd="afplay -v 1 ./".$filename.";";	
+			$cmd="afplay -v 0.5 ./".$filename.";";	
 		}
 	}
 	exec($cmd);
