@@ -12,6 +12,13 @@ Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Googl
      ai write me a program i love
  ```
  
+ ```
+     admin@MacBook ~ % ai joke  
+
+     	Why don't scientists trust atoms? Because they make up everything.
+ 
+ ```
+ 
 ### Chatting
 
 Just run the PHP script with regular PHP notation.
