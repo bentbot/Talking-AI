@@ -58,6 +58,7 @@ Default options are as follows:
  - en-US-Wavenet-G (thru F)
  - en-US-News-K (thru N)
  - en-US-Standard-A (thru J)
+ - Use `--voices` to view the full list of English voices.
  - Additional voices & languages can be found and tried on [Google's TTS Demo](https://cloud.google.com/text-to-speech).
 
 Please send love and feedback! :)
