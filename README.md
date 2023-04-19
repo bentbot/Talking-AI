@@ -25,7 +25,7 @@ Just run the PHP script with regular PHP notation.
 
       php Speaking_AI.php "Ask me a question..." [prompt] [pitch 0.25-4] [speaking rate] [volume 0-1] [voice] [language]
 
-Example Requests:
+### Example Requests
 
       php ./Speaking_AI.php "Hello, are you there?" 1 1.2 0.3
       php ./Speaking_AI.php "Who were the first settlers in the Amazon rain forest?" 1 2 1 "en-US-Studio-M"
