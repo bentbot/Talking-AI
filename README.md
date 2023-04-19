@@ -1,4 +1,4 @@
-# Talking AI Script
+# :sparkle: Talking AI Script
 
 Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Google Speech Synthesis. 
 
@@ -13,12 +13,15 @@ ai hello world
  ```
 
  ```
-admin@MacBook ~ % ai 'joke'
+admin@MacBook ~ % ai joke
 
- 	Why don't scientists trust atoms? ...
+ 		Why couldn't the bicycle stand up by itself? 
+
+Because it was two-tired.
  
  ```
- 
+Baahaha. :laughing:
+
 ### Chatting
 
 Just run the PHP script with regular PHP notation.
