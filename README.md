@@ -15,7 +15,7 @@ ai hello world
  ```
 admin@MacBook ~ % ai 'joke'
 
- 	Why don't scientists trust atoms? Because they make up everything.
+ 	Why don't scientists trust atoms? ...
  
  ```
  
