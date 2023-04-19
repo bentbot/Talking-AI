@@ -30,6 +30,13 @@ Default options are as follows:
  - Mac
  - Linux
  
+## Simple AI Command 
+Open the `ai` file found in this repository. Customize TTS options.
+Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the path of the PHP file. 
+Chmod `chmod +x ./ai` to make the `ai` file runnable.
+Copy `sudo cp ./ai /usr/local/bin` the file to your bin folder.
+Now you can use it anywhere in your Terminal: `$ ai 'Write me an essay...'`
+ 
 ### Troubleshooting
  Please make sure you have `afplay` or equivalent for the play() function to work properly. You may want to replace the commands on lines 117 & 119 with your own system's choice command-line audio player.
 
