@@ -33,9 +33,9 @@ Example Requests:
       php ./Speaking_AI.php "What is Neuton's Law of Gravity?" 1 1 1 "en-US-Neural2-G"
       php ./Speaking_AI.php "How many times does the earth orbit the sun per decade?" 1 1 1 "en-US-Neural2-H"
       php ./Speaking_AI.php "Is life possible on any of Jupitar's moons?" 1 1 1 "en-US-Neural2-I"
-      
-      
-Default options are as follows:
+
+
+### Default Options
  - prompt: Required
  - pitch: 0.7
  - speakingRate: 0.3
