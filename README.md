@@ -25,7 +25,7 @@ Just run the PHP script with regular PHP notation.
 
       php Speaking_AI.php "Ask me a question..." [prompt] [pitch 0.25-4] [speaking rate] [volume 0-1] [voice] [language]
 
-*Please note that some answers that the AI may provide could include computer code and may not be considered short enough to synthesize to speech. Therefore, sometimes only text shall appear as output and audio will not play in some cases.*
+*Please note that some answers that the AI may provide could include computer code and may not be considered short enough to synthesize to speech. Therefore, long text will sometimes appear and audio may not play.*
 
 ### Example Requests
 
