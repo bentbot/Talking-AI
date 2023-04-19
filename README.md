@@ -2,6 +2,16 @@
 
 Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Google Speech Synthesis. 
 
+## Simple AI Talking Command Line
+ 1. Open the ai file found in this repository. `nano ./ai` Customize your AI's characteristics.
+ 2. Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the full system path to the PHP file. 
+ 3. Make sure all required dependencies are in your bin folder, an then install `ai` into it. *MacOS shown below.*
+ ```
+     chmod +x ./ai
+     sudo cp ./ai /usr/local/bin
+     ai write me a program i love
+ ```
+ 
 ### Chatting
 
 Just run the PHP script with regular PHP notation.
@@ -30,16 +40,6 @@ Default options are as follows:
  - Mac
  - Linux (untested)
  - Windows (untested)
- 
-## Simple AI Talking Command Line
- 1. Open the ai file found in this repository. `nano ./ai` Customize your AI's characteristics.
- 2. Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the full system path to the PHP file. 
- 3. Make sure all required dependencies are in your bin folder, an then install `ai` into it. *MacOS shown below.*
- ```
-     chmod +x ./ai
-     sudo cp ./ai /usr/local/bin
-     ai write me a program i love
- ```
  
 ### Troubleshooting
  - Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready in order to hear the voices.
