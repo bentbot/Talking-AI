@@ -34,7 +34,7 @@ if(!$prompt) {
 	$voice = available_voices(true);
 }
 
-$openai_api_key = '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';
+$openai_api_key = 'sk-YOUR_OPENAI_API_KEY';
 
 $url = 'https://api.openai.com/v1/chat/completions';
 
@@ -71,7 +71,7 @@ if(isset($response)){
 
 function read($text,$language,$voice,$pitch,$speakingRate) {
 	$file='ai_speaking';
-	$google_api_key = "AIzaSyCALjIlUt0tA6cLwBO20-kG1wYINUf-oNE";
+	$google_api_key = "";
 	$filename = str_replace(' ', '_', strtolower($file)).'.mp3';
 	$myfile = fopen($filename, "w") or die("Unable to open file!");
 	$post_data = [
