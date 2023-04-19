@@ -9,12 +9,12 @@ Just run the PHP script with regular PHP notation. Example:
       php Speaking_AI.php "Ask me a question..." [prompt] [pitch 0.25-4] [speaking rate] [volume 0-1] [voice] [language]
       
 Default options are as follows:
-    - prompt: Required
-    - pitch: 0.7
-    - speakingRate: 0.3
-    - volume: 0.4
-    - voice: 'en-US-Studio-M'
-    - language: 'en-us'
+ - prompt: Required
+ - pitch: 0.7
+ - speakingRate: 0.3
+ - volume: 0.4
+ - voice: 'en-US-Studio-M'
+ - language: 'en-us'
     
 ### Supported:
  - Mac
