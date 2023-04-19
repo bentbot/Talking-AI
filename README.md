@@ -7,15 +7,15 @@ Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Googl
  2. Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the full system path to the PHP file. 
  3. Make sure all required dependencies are in your bin folder, an then install `ai` into it. *MacOS shown below.*
  ```
-     chmod +x ./ai
-     sudo cp ./ai /usr/local/bin
-     ai write me a program i love
+chmod +x ./ai
+sudo cp ./ai /usr/local/bin
+ai write me a program i love
  ```
  
  ```
-     admin@MacBook ~ % ai joke  
+admin@MacBook ~ % ai joke  
 
-     	Why don't scientists trust atoms? Because they make up everything.
+ 	Why don't scientists trust atoms? Because they make up everything.
  
  ```
  
