@@ -33,11 +33,11 @@ Default options are as follows:
 ## Simple AI Command 
  1. Open the `ai` file found in this repository. Customize TTS options.
  2. Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the path of the PHP file. 
- 3. ```
-      chmod +x ./ai
-      sudo cp ./ai /usr/local/bin
-      ai make me a program that i love
-   ```
+ ```
+     chmod +x ./ai
+     sudo cp ./ai /usr/local/bin
+     ai write me a program i love
+ ```
  
 ### Troubleshooting
  Please make sure you have `afplay` or equivalent for the play() function to work properly. You may want to replace the commands on lines 117 & 119 with your own system's choice command-line audio player.
