@@ -1,3 +1,4 @@
 #!/bin/bash
 str="'$*'"
-php FULL_PAITH_TO_THIS_DIR_FILE/Speaking\ AI.php "$str" 1 1 1 "en-US-Neural2-H";
+# Update ./ to /FULL_PAITH_TO_THIS_DIR_FILE/ then run `sudo cp ./ai /usr/local/bin/ai`
+php ./Speaking_AI.php "$str" 1 1 1 "en-US-Neural2-H";
