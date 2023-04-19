@@ -31,21 +31,21 @@ Default options are as follows:
  - Linux
  
 ## Simple AI Command 
-Open the `ai` file found in this repository. Customize TTS options.
-Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the path of the PHP file. 
-Chmod `chmod +x ./ai` to make the `ai` file runnable.
-Copy `sudo cp ./ai /usr/local/bin` the file to your bin folder.
-Now you can use it anywhere in your Terminal: `$ ai 'Write me an essay...'`
+ 1. Open the `ai` file found in this repository. Customize TTS options.
+ 2. Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the path of the PHP file. 
+ 3. Chmod `chmod +x ./ai` to make the `ai` file runnable.
+ 4. Copy `sudo cp ./ai /usr/local/bin` the file to your bin folder.
+ 5. Now you can use it anywhere in your Terminal: `$ ai 'Write me an essay...'`
  
 ### Troubleshooting
  Please make sure you have `afplay` or equivalent for the play() function to work properly. You may want to replace the commands on lines 117 & 119 with your own system's choice command-line audio player.
 
 ### Available Voices (en-US)
-en-US-Neural2-A (thru J)
-en-US-Studio-M (thru O)
-en-US-Wavenet-G (thru F)
-en-US-News-K (thru N)
-en-US-Standard-A (thru J)
-Additional voices & languages can be found and tried on Google's TTS website.
+ - en-US-Neural2-A (thru J)
+ - en-US-Studio-M (thru O)
+ - en-US-Wavenet-G (thru F)
+ - en-US-News-K (thru N)
+ - en-US-Standard-A (thru J)
+ - Additional voices & languages can be found and tried on Google's TTS website.
 
 Please send love and feedback! :)
