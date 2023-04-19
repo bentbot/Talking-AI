@@ -10,12 +10,12 @@ Just run the PHP script with regular PHP notation.
 
 Example Requests:
 
-      php ./Speaking\ AI.php "Hello, are you there?" 1 1.2 0.3
-      php ./Speaking\ AI.php "Who were the first settlers in the Amazon rain forest?" 1 2 1 "en-US-Studio-M"
-      php ./Speaking\ AI.php "What is the current world population?" 1 1.4 0.5 "en-US-Studio-O"
-      php ./Speaking\ AI.php "What is Neuton's Law of Gravity?" 1 1 1 "en-US-Neural2-G"
-      php ./Speaking\ AI.php "How many times does the earth orbit the sun per decade?" 1 1 1 "en-US-Neural2-H"
-      php ./Speaking\ AI.php "Is life possible on any of Jupitar's moons?" 1 1 1 "en-US-Neural2-I"
+      php ./Speaking_AI.php "Hello, are you there?" 1 1.2 0.3
+      php ./Speaking_AI.php "Who were the first settlers in the Amazon rain forest?" 1 2 1 "en-US-Studio-M"
+      php ./Speaking_AI.php "What is the current world population?" 1 1.4 0.5 "en-US-Studio-O"
+      php ./Speaking_AI.php "What is Neuton's Law of Gravity?" 1 1 1 "en-US-Neural2-G"
+      php ./Speaking_AI.php "How many times does the earth orbit the sun per decade?" 1 1 1 "en-US-Neural2-H"
+      php ./Speaking_AI.php "Is life possible on any of Jupitar's moons?" 1 1 1 "en-US-Neural2-I"
       
       
 Default options are as follows:
