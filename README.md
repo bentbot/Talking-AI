@@ -28,7 +28,8 @@ Default options are as follows:
 
 ### Supported:
  - Mac
- - Linux
+ - Linux (untested)
+ - Windows (untested)
  
 ## Simple AI Talking Command Line
  1. Open the ai file found in this repository. `nano ./ai` Customize your AI's characteristics.
