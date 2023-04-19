@@ -30,9 +30,10 @@ Default options are as follows:
  - Mac
  - Linux
  
-## Simple AI Command 
- 1. Open the `ai` file found in this repository. Customize TTS options.
- 2. Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the path of the PHP file. 
+## Simple AI Talking Command Line
+ 1. Open the ai file found in this repository. `nano ./ai` Customize your AI's characteristics.
+ 2. Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the full system path to the PHP file. 
+ 3. Make sure all required dependencies are in your bin folder, an then install `ai` into it. *MacOS shown below.*
  ```
      chmod +x ./ai
      sudo cp ./ai /usr/local/bin
