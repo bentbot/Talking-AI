@@ -41,7 +41,8 @@ Default options are as follows:
  ```
  
 ### Troubleshooting
- Please make sure you have `afplay` or equivalent for the play() function to work properly. You may want to replace the commands on lines 117 & 119 with your own system's choice command-line audio player.
+ Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready in order to hear the voices.
+ Make sure you've signed up for [Google Text-To-Speech Console](https://console.cloud.google.com/) and [OpenAI ChatGPT API](https://platform.openai.com/account/api-keys) access systems and inserted your API keys.
 
 ### Available Voices (en-US)
  - en-US-Neural2-A (thru J)
@@ -49,6 +50,6 @@ Default options are as follows:
  - en-US-Wavenet-G (thru F)
  - en-US-News-K (thru N)
  - en-US-Standard-A (thru J)
- - Additional voices & languages can be found and tried on Google's TTS website.
+ - Additional voices & languages can be found and tried on [Google's TTS Demo](https://cloud.google.com/text-to-speech).
 
 Please send love and feedback! :)
