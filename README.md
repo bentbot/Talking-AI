@@ -38,9 +38,9 @@ admin@MacBook AI Generated Code % ai --help
       [chat] 'Ask for something here' 
       [pitch] 0.9 / 1 / 1.3 / 2
       [speakingRate] 0.8 / 1 / 1.2 / 2.3
-      [volume] 0.2 / 0.4 / 0.6 / 1 / 0
-      [voice] 'en-US-Studio-M' / 'en-US-Wavenet-I' / false
-      [filename] 'voice_file' (save spoken words to an MP3 file) / false or 0 to mute audio playback.
+      [volume] 0.2 / 0.4 / 0.6 / 1 / 0 (mute)
+      [voice] 'en-US-Studio-M' / 'en-US-Wavenet-I' / false (mute) / 0 (mute)
+      [filename] 'voice_file' (save spoken words to an MP3 file) / false or 0 may mute the audio playback.
       [language] 'en-us' (experimental)
   Examples:
    ai what is the sum of pi
