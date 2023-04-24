@@ -7,7 +7,8 @@ Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Googl
  2. Open the script with `nano ./Speaking_AI.php` and replace the two API key variables: `OPEN_API_KEY` & `GOOGLE_API_KEY` (lines 50, 91) in `Speaking_AI.php`.
  3. Open `ai` with `nano ./ai` and customize your AI's voice characteristics, see **Chatting**.
  4. Modify the `FULL_PAITH_TO_THIS_DIR_FILE` with the full system path to the PHP file. 
- 5. Make sure all required dependencies (`ffplay` or `afplay`) are in your `bin` folder, and then install `ai` into it. ***MacOS installation shown below.***
+ 5. Install `ai` into your local `bin` folder to run it with the terminal. 
+***MacOS Installation:***
  ```
 chmod +x ./ai
 sudo cp ./ai /usr/local/bin
@@ -73,10 +74,11 @@ Just run the PHP script with regular PHP notation.
  - Windows (untested)
  
 ### Troubleshooting
+ - Make sure all required dependencies (`ai`, `afplay`, `ffplay`) are located in your local system `bin` folder
  - Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready in order to hear the voices.
  - Make sure you've signed up for [Google Text-To-Speech Console](https://console.cloud.google.com/) and [OpenAI ChatGPT API](https://platform.openai.com/account/api-keys) access systems and inserted your API keys.
  - Do you have [PHP](https://www.google.com/search?q=php+download+and+install) installed on your computer system?
-
+ - 
 ### Available Voices (en-US)
  - en-US-Neural2-A (thru J)
  - en-US-Studio-M (thru O)
