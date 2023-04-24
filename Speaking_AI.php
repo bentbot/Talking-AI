@@ -50,7 +50,6 @@ if(!$prompt||$prompt==""||$prompt=="'-h'"||$prompt=="'--help'") {
 } else if ($voice=="'random'") {
 	$voice = available_voices(true);
 }
-
 $url = 'https://api.openai.com/v1/chat/completions';
 $post_data = [
 	"model"=>"gpt-3.5-turbo",
