@@ -31,7 +31,7 @@ $language = isset($filters[6])?$filters[6]:'en-us';
 if(!$prompt||$prompt==""||$prompt=="'-h'"||$prompt=="'--help'") {
 	echo("  Run the script with regular script notation. Example:\n");
 	echo("   ai --voices [see all voices available]\n");
-	echo("   ai [chat] 'make a demand' [pitch] 2 [speakingRate] 2.3 [volume] 1 [voice] 'en-US-Studio-M' [MP3 file] 'file_name' [language] 'en-us'\n");
+	echo("   ai [chat] [pitch] [rate] [vol] ['voice'] ['file_name']\n");
 	echo("      [chat] 'Ask for something here' \n");
 	echo("      [pitch] 0.9 / 1 / 1.3 / 2\n");
 	echo("      [speakingRate] 0.8 / 1 / 1.2 / 2.3\n");
