@@ -9,9 +9,10 @@ php ./Speaking_AI.php "$str" 1 1 1 "en-US-Neural2-H";
 #  Customize the AI's pitch, speaking rate, volume, voice, language:
 #   ai --voices [to see all voices available]
 #   ai [chat] "$str" [pitch] 1 [speakingRate] 1 [volume] 1 [voice] 'en-US-Studio-M' [language] 'en-us'
-#      [chat] Leave it as "$str" to pass the command through.
-#      [pitch] 0.9 / 1 / 1.3 / 2
-#      [speakingRate] 0.8 / 1 / 1.2 / 2.3
-#      [volume] 0.2 / 0.4 / 0.6 / 1
-#      [voice] en-US-Studio-M
-#      [language] en-us
+#      [chat] Leave it as "$str" to pass the command through. ( do not modify )
+#      [pitch] 0.9 / 1 / 1.3 / 2 ( default value: 1 )
+#      [speakingRate] 0.8 / 1 / 1.2 / 2.3 ( default value: 1 )
+#      [volume] 0.2 / 0.4 / 0.6 / 1 / 0 ( will mute the audio output )
+#      [voice] "en-US-Studio-M" Choose one of the voices found with --voices
+#      [filename] "mp3_file_path" An optional path of an MP3 file with the spoken words.
+# TIP: Use `>` after your command to output the text to a file. Use `>>` to append the output.
