@@ -60,14 +60,6 @@ Just run the PHP script with regular PHP notation.
       php ./Speaking_AI.php "How many times does the earth orbit the sun per decade?" 1 1 1 "en-US-Neural2-H"
       php ./Speaking_AI.php "Is life possible on any of Jupitar's moons?" 1 1 1 "en-US-Neural2-I"
 
-### Default Options
- - prompt: Required
- - pitch: 0.7
- - speakingRate: 0.3
- - volume: 0.4
- - voice: 'en-US-Studio-M'
- - language: 'en-us'
-
 ### Supported:
  - Mac
  - Linux (untested)
