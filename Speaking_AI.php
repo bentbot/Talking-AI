@@ -3,9 +3,9 @@
 /**
 * Title: Talking AI Script
 * Author: Liam Hogan <bentbot@outlook.com>
-* Date: April 18, 2023
+* Date: April 23, 2023
 * Reference: https://cloud.google.com/text-to-speech https://chat.openai.com/
-* Required: afplay/ffplay google_api_key openai_api_key
+* Required: afplay google_api_key openai_api_key
 **/
 
 /* 
@@ -18,23 +18,36 @@ $filters = array_fill(0, 3, null);
 for($i = 1; $i < $argc; $i++) {
 	$filters[$i - 1] = $argv[$i];
 }
+global $volumes;
 $prompt = isset($filters[0])?$filters[0]:false;
 $pitch = isset($filters[1])?$filters[1]:0.7;
 $speakingRate = isset($filters[2])?$filters[2]:0.3;
-$volume = isset($filters[3])?$filters[3]:0.5;
+$volume = isset($filters[3])?$filters[3]:1;
 $voice = isset($filters[4])?$filters[4]:'en-US-Studio-M';
 $language = isset($filters[5])?$filters[5]:'en-us';
-if(!$prompt) {
-	echo("Run this script with regular PHP notation. Example:\n");
-	echo('php ./Speaking_AI.php [chat] "Ask me a question..." [pitch] 2 [speakingRate] 2.3 [volume] 1 [voice] en-US-Studio-M [language] en-us');
+if(!$prompt||$prompt==""||$prompt=="'-h'"||$prompt=="'--help'") {
+	echo("  Run the script with regular script notation. Example:\n");
+	echo("   ai --voices [see all voices available]\n");
+	echo("   ai [chat] 'make a demand' [pitch] 2 [speakingRate] 2.3 [volume] 1 [voice] 'en-US-Studio-M' [language] 'en-us'\n");
+	echo("      [chat] 'Ask for something here' \n");
+	echo("      [pitch] 0.9 / 1 / 1.3 / 2\n");
+	echo("      [speakingRate] 0.8 / 1 / 1.2 / 2.3\n");
+	echo("      [volume] 0.2 / 0.4 / 0.6 / 1\n");
+	echo("      [voice] en-US-Studio-M\n");
+	echo("      [language] en-us\n");
+        echo("  Examples:\n");
+	echo("   ai what is the sum of pi\n");
+	echo("   php Speaking AI.php --voices\n");
+	echo("   php ./Speaking\ AI.php \"where's pluto\" 1 1 1 'en-US-Neural2-H';\n");
+	echo("   ai --help\n");
 	exit();
-} else if ($prompt=='--voices') {
+} else if ($prompt=="'--voices'") {
 	available_voices(false); exit();
-} else if ($voice=='random') {
+} else if ($voice=="'random'") {
 	$voice = available_voices(true);
 }
 
-$openai_api_key = 'YOUR_OPENAI_API_KEY';
+$openai_api_key = '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';
 
 $url = 'https://api.openai.com/v1/chat/completions';
 
@@ -63,15 +76,19 @@ curl_close($curl);
 if(isset($response)){
 	$data = json_decode($response, true);
     if(isset($data)){
-    	$text = $data['choices'][0]['message']['content'];
-    	echo("\n	".$text."\n\n");
-    	read($text,$language,$voice,$pitch,$speakingRate);
+	if(isset($data['choices'][0]['message'])){
+    		$text = $data['choices'][0]['message']['content'];
+	    	echo("\n	".$text."\n\n");
+	    	read($text,$language,$voice,$pitch,$speakingRate,$volume);
+	} else {
+		print_r($data);
+	}
     }
 }
 
-function read($text,$language,$voice,$pitch,$speakingRate) {
+function read($text,$language,$voice,$pitch,$speakingRate,$vol) {
 	$file='ai_speaking';
-	$google_api_key = "YOUR_GOOGLE_API_KEY";
+	$google_api_key = "AIzaSyCALjIlUt0tA6cLwBO20-kG1wYINUf-oNE";
 	$filename = str_replace(' ', '_', strtolower($file)).'.mp3';
 	$myfile = fopen($filename, "w") or die("Unable to open file!");
 	$post_data = [
@@ -111,24 +128,23 @@ function read($text,$language,$voice,$pitch,$speakingRate) {
 		fwrite($myfile, $mp3);
 		fclose($myfile);
 		chmod($filename, 0755);
-		play($filename); // To play the file
+		play($filename,$vol); // To play the file
 		unlink($filename);
 	}
 }
 
-function play($filename) {
-	$volume = isset($filters[3])?$filters[3]:0.5;
-	if(isset($volume)) {
+function play($filename,$volumes) {
+	if(isset($volumes)) {
 		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-			$cmd="ffplay -v 0 -volume ".$volume." -nodisp -autoexit ".$filename;
+			$cmd="ffplay -v 0 -volume ".$volumes." -nodisp -autoexit ".$filename;
 		} else {
-			$cmd="afplay -v ".$volume." ./".$filename.";";
+			$cmd="afplay -v ".$volumes." ./".$filename.";";
 		}
 	} else {
 		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-			$cmd="ffplay -v 0 -volume 0.5 -nodisp -autoexit ".$filename;
+			$cmd="ffplay -v 0 -volume 1 -nodisp -autoexit ".$filename;
 		} else {
-			$cmd="afplay -v 0.5 ./".$filename.";";	
+			$cmd="afplay -v 1 ./".$filename.";";	
 		}
 	}
 	exec($cmd);
@@ -172,7 +188,7 @@ function available_voices($rand) {
 		"en-US-Standard-I",
 		"en-US-Standard-J",
 	];
-	if(true){
+	if($rand) {
 		$r=rand(0,count($voices)-1);
 		return $voices[$r];
 	} else {
