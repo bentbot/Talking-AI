@@ -24,6 +24,24 @@ Because it was two-tired.
  ```
 Baahaha. :laughing:
 
+```
+admin@MacBook AI Generated Code % ai --help
+  Run the script with regular script notation. Example:
+   ai --voices [see all voices available]
+   ai [chat] 'make a demand' [pitch] 2 [speakingRate] 2.3 [volume] 1 [voice] 'en-US-Studio-M' [language] 'en-us'
+      [chat] 'Ask for something here' 
+      [pitch] 0.9 / 1 / 1.3 / 2
+      [speakingRate] 0.8 / 1 / 1.2 / 2.3
+      [volume] 0.2 / 0.4 / 0.6 / 1
+      [voice] en-US-Studio-M
+      [language] en-us
+  Examples:
+   ai what is the sum of pi
+   php Speaking AI.php --voices
+   php ./Speaking\ AI.php "where's pluto" 1 1 1 'en-US-Neural2-H';
+   ai --help
+```
+
 ### Chatting
 
 Just run the PHP script with regular PHP notation.
