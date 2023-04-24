@@ -60,11 +60,6 @@ Just run the PHP script with regular PHP notation.
       php ./Speaking_AI.php "How many times does the earth orbit the sun per decade?" 1 1 1 "en-US-Neural2-H"
       php ./Speaking_AI.php "Is life possible on any of Jupitar's moons?" 1 1 1 "en-US-Neural2-I"
 
-### Supported:
- - Mac
- - Linux (untested)
- - Windows (untested)
- 
 ### Troubleshooting
  - Make sure all required dependencies (`ai`, `afplay`, `ffplay`) are located in your local system `bin` folder
  - Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready in order to hear the voices.
