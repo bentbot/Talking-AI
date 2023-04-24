@@ -7,7 +7,8 @@ Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Googl
  2. Open the script `nano ./Speaking_AI.php` and find & replace the two API key variables: `OPEN_API_KEY` & `GOOGLE_API_KEY`
  3. Open `ai` with `nano ./ai` and customize your AI's voice characteristics. See the **Chatting** section.
  4. Modify the `./` in the `ai` file with the current working directory or the filepath to the PHP file.
- 5. Install `ai` with the command: `chmod +x ./ai;` and into your local `bin` folder: `sudo cp ./ai /usr/local/bin;` in order to run it with the terminal. 
+ 5. Install `ai` with the command: `chmod +x ./ai;` and into your local `bin` folder `sudo cp ./ai /usr/local/bin;` 
+ 6. Run it directly from the terminal. `ai how many kms to the moon`
 
 ***MacOS Installation:***
  ```
