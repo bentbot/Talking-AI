@@ -1,4 +1,4 @@
-# :sparkle: Talking Console AI Script
+# :sparkle: Talking AI Console Script
 
 Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Google Speech Synthesis. 
 
