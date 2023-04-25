@@ -28,7 +28,7 @@ admin@MacBook ~ % ai joke
 Because it was two-tired.
  
  ```
-Baahaha. :laughing:
+Hahaha :laughing:
 
 ```
 admin@MacBook AI Generated Code % ai --help
