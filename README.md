@@ -10,7 +10,7 @@ Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Googl
  5. Install `ai` with the command `chmod +x ./ai;` and copy it into your local `bin` folder `sudo cp ./ai /usr/local/bin;` 
  6. Run it directly from the command line: `ai bake chocolate chip cookies`
 
-***MacOS Installation:***
+***Installation:***
  ```
 git clone https://github.com/bentbot/Talking-AI-Script.git
 cd Talking-AI-Script/
