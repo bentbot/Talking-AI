@@ -16,14 +16,21 @@ Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
 
 1. Set the environment variables or edit the PHP:
  ```
-  export GOOGLE_TTS_KEY="your-tts-key"
-  export OPEN_AI_API_KEY="your-api-key"
+ export GOOGLE_TTS_KEY="your-tts-key"
+ export OPEN_AI_API_KEY="your-api-key"
  ```
+Modify environment variables permanently (appent to `~/.profile` on MacOS):
+ ```
+ sudo nano ~/.profile
+  set GOOGLE_TTS_KEY="your-tts-key"
+  set OPEN_AI_API_KEY="your-api-key"
+```
 2. Clone and install the AI:
  ```
 git clone https://github.com/bentbot/Talking-AI.git
 cd Talking-AI
 export AI_PATH=`pwd`
+echo "set AI_PATH=`pwd`" >> ~/.profile
 chmod +x ./ai
 sudo cp ./ai /usr/local/bin
 ai hello world
