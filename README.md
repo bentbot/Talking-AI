@@ -6,12 +6,11 @@ Command Line PHP Script that that talks back to you! It can be used to help solv
  1. Go to [Google Cloud Console](https://console.cloud.google.com/) and [OpenAI API 
 Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
  2. Set the 2 environment variables as described in the Installation section or alternatively edit the PHP script 
-`Speaking_AI.php` find & replace the API key strings `OPEN_API_KEY` & `GOOGLE_API_KEY`.
- 3. Open `ai` with `nano ./ai` and customize your AI's voice characteristics. See the **Chatting** section.
- 4. Modify the `./` in the `ai` file with the current working directory or the filepath to the PHP file.
- 5. Install `ai` with the command `chmod +x ./ai;` and copy it into your local `bin` folder `sudo cp ./ai 
+`Speaking_AI.php` to find & replace the API keys: `OPEN_API_KEY` and `GOOGLE_API_KEY`.
+ 3. Optional: Open `ai` with `nano ./ai` and customize your AI's voice characteristics. See the **Chatting** section.
+ 4. Install `ai` with the command `chmod +x ./ai;` and copy it into your local `bin` folder `sudo cp ./ai 
 /usr/local/bin;` 
- 6. Run it directly from the command line: `ai bake chocolate chip cookies`
+ 5. Run it directly from the command line: `ai bake chocolate chip cookies`
 
 ***Installation:***
 Set the environmental variables or edit the PHP file.
@@ -19,7 +18,7 @@ Set the environmental variables or edit the PHP file.
   export GOOGLE_TTS_KEY="your-tts-key"
   export OPEN_AI_API_KEY="your-api-key"
  ```
-
+Clone and install the AI.
  ```
 git clone https://github.com/bentbot/Talking-AI.git
 cd Talking-AI
@@ -28,7 +27,7 @@ chmod +x ./ai
 sudo cp ./ai /usr/local/bin
 ai hello world
  ```
-
+Example:
  ```
 admin@MacBook ~ % ai joke
 
