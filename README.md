@@ -13,12 +13,13 @@ Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
  5. Run it directly from the command line: `ai bake chocolate chip cookies`
 
 ***Installation:***
-Set the environmental variables or edit the PHP file.
+
+1. Set the environment variables or edit the PHP:
  ```
   export GOOGLE_TTS_KEY="your-tts-key"
   export OPEN_AI_API_KEY="your-api-key"
  ```
-Clone and install the AI.
+2. Clone and install the AI:
  ```
 git clone https://github.com/bentbot/Talking-AI.git
 cd Talking-AI
@@ -27,7 +28,7 @@ chmod +x ./ai
 sudo cp ./ai /usr/local/bin
 ai hello world
  ```
-Example:
+3. Play with the AI:
  ```
 admin@MacBook ~ % ai joke
 
