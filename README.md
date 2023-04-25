@@ -2,7 +2,7 @@
 
 Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Google Speech Synthesis. 
 
-## Simple AI Talking Command Line
+## Simple Talking AI in the Command Line
  1. Go to [Google Cloud Console](https://console.cloud.google.com/) and [OpenAI API Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
  2. Open the script `nano ./Speaking_AI.php` and find & replace the two API key variables: `OPEN_API_KEY` & `GOOGLE_API_KEY`
  3. Open `ai` with `nano ./ai` and customize your AI's voice characteristics. See the **Chatting** section.
@@ -82,3 +82,5 @@ Just run the PHP script with regular PHP notation.
  - Additional voices & languages can be found and tried on [Google's TTS Demo](https://cloud.google.com/text-to-speech).
 
 Please send love and feedback! :) [@bentbot](http://liamhogan.ca)
+
+Tags: cli-ai cli ai terminal cmd shell power-shell google voice openai chat artificial intelligence command-line interface
