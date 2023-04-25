@@ -41,10 +41,10 @@ Hahaha :laughing:
 
 ## Examples
 
- - ai what is the sum of pi
- - php Speaking AI.php --voices
- - php ./Speaking\ AI.php "where's pluto" 1 1 1 'en-US-Neural2-H';
- - ai --help
+ - `ai what is the sum of pi`
+ - `php Speaking AI.php --voices`
+ - `php ./Speaking\ AI.php "where's pluto" 1 1 1 'en-US-Neural2-H';`
+ - `ai --help`
 
 All speech options can be seen with the `--help` command.
 ```
