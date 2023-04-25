@@ -12,8 +12,8 @@ Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Googl
 
 ***Installation:***
  ```
-git clone https://github.com/bentbot/Talking-AI-Script.git
-cd Talking-AI-Script/
+git clone https://github.com/bentbot/Talking-AI.git
+cd Talking-AI
 nano ./Speaking_AI.php ai
 chmod +x ./ai
 sudo cp ./ai /usr/local/bin
