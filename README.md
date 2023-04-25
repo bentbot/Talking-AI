@@ -61,6 +61,8 @@ ai --help
       [language] 'en-us' (experimental)
 ```
 
+## Chatting
+
 Just run the PHP script with regular PHP notation.
 
       php Speaking_AI.php "Ask me a question..." [prompt] [pitch 0.25-4] [speaking rate] [volume 0-1] [voice] 
@@ -75,8 +77,6 @@ enough to synthesize to speech. Therefore, long text will sometimes appear and a
       php ./Speaking_AI.php "How many times does the earth orbit the sun per decade?" 1 1 1 "en-US-Neural2-H"
       php ./Speaking_AI.php "Is life possible on any of Jupitar's moons?" 1 1 1 "en-US-Neural2-I"
 
-### Chatting
-
 ### Available Voices (en-US)
  - en-US-Neural2-A (thru J)
  - en-US-Studio-M (thru O)
@@ -88,7 +88,7 @@ enough to synthesize to speech. Therefore, long text will sometimes appear and a
 Demo](https://cloud.google.com/text-to-speech).
 cli-ai cli ai terminal cmd shell power-shell google voice openai chat artificial intelligence command-line interface
 
-### Troubleshooting
+## Troubleshooting
  - Make sure all required dependencies (`ai`, `afplay`, `ffplay`) are located in your local system `bin` folder
  - Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready 
 in order to hear the voices.
