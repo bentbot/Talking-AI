@@ -30,11 +30,11 @@ ai hello world
  ```
 3. Play with the AI:
  ```
-ai joke
+$ ai joke
 
- 		Why couldn't the bicycle stand up by itself? 
+  Why couldn't the bicycle stand up by itself? 
 
-Because it was two-tired.
+ Because it was two-tired.
  
  ```
 Hahaha :laughing:
