@@ -12,7 +12,7 @@ Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
 /usr/local/bin;` 
  5. Run it directly from the command line: `ai bake chocolate chip cookies`
 
-***Installation:***
+## Installation
 
 1. Set the environment variables or edit the PHP:
  ```
@@ -30,7 +30,7 @@ ai hello world
  ```
 3. Play with the AI:
  ```
-admin@MacBook ~ % ai joke
+ai joke
 
  		Why couldn't the bicycle stand up by itself? 
 
@@ -39,8 +39,16 @@ Because it was two-tired.
  ```
 Hahaha :laughing:
 
+## Examples
+
+ - ai what is the sum of pi
+ - php Speaking AI.php --voices
+ - php ./Speaking\ AI.php "where's pluto" 1 1 1 'en-US-Neural2-H';
+ - ai --help
+
+All speech options can be seen with the `--help` command.
 ```
-admin@MacBook AI Generated Code % ai --help
+ai --help
   Run the script with regular script notation. Example:
    ai --voices [see all voices available]
    ai [chat] 'make a demand' [pitch] 2 [speakingRate] 2.3 [volume] 1 [voice] 'en-US-Studio-M' [language] 'en-us'
@@ -51,24 +59,14 @@ admin@MacBook AI Generated Code % ai --help
       [voice] 'en-US-Studio-M' / 'en-US-Wavenet-I' / false (mute) / 0 (mute)
       [filename] 'voice_file' (save spoken words to an MP3 file) / false or 0 may mute the audio playback.
       [language] 'en-us' (experimental)
-  Examples:
-   ai what is the sum of pi
-   php Speaking AI.php --voices
-   php ./Speaking\ AI.php "where's pluto" 1 1 1 'en-US-Neural2-H';
-   ai --help
 ```
-
-### Chatting
 
 Just run the PHP script with regular PHP notation.
 
       php Speaking_AI.php "Ask me a question..." [prompt] [pitch 0.25-4] [speaking rate] [volume 0-1] [voice] 
-[language]
 
 *Please note that some answers that the AI may provide could include computer code and may not be considered short 
 enough to synthesize to speech. Therefore, long text will sometimes appear and audio may not play.*
-
-### Example Requests
 
       php ./Speaking_AI.php "Hello, are you there?" 1 1.2 0.3
       php ./Speaking_AI.php "Who were the first settlers in the Amazon rain forest?" 1 2 1 "en-US-Studio-M"
@@ -77,13 +75,7 @@ enough to synthesize to speech. Therefore, long text will sometimes appear and a
       php ./Speaking_AI.php "How many times does the earth orbit the sun per decade?" 1 1 1 "en-US-Neural2-H"
       php ./Speaking_AI.php "Is life possible on any of Jupitar's moons?" 1 1 1 "en-US-Neural2-I"
 
-### Troubleshooting
- - Make sure all required dependencies (`ai`, `afplay`, `ffplay`) are located in your local system `bin` folder
- - Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready 
-in order to hear the voices.
- - Make sure you've signed up for [Google Text-To-Speech Console](https://console.cloud.google.com/) and [OpenAI 
-ChatGPT API](https://platform.openai.com/account/api-keys) access systems and inserted your API keys.
- - Do you have [PHP](https://www.google.com/search?q=php+download+and+install) installed on your computer system?
+### Chatting
 
 ### Available Voices (en-US)
  - en-US-Neural2-A (thru J)
@@ -95,5 +87,13 @@ ChatGPT API](https://platform.openai.com/account/api-keys) access systems and in
  - Additional voices & languages can be found and tried on [Google's TTS 
 Demo](https://cloud.google.com/text-to-speech).
 cli-ai cli ai terminal cmd shell power-shell google voice openai chat artificial intelligence command-line interface
+
+### Troubleshooting
+ - Make sure all required dependencies (`ai`, `afplay`, `ffplay`) are located in your local system `bin` folder
+ - Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready 
+in order to hear the voices.
+ - Make sure you've signed up for [Google Text-To-Speech Console](https://console.cloud.google.com/) and [OpenAI 
+ChatGPT API](https://platform.openai.com/account/api-keys) access systems and inserted your API keys.
+ - Do you have [PHP](https://www.google.com/search?q=php+download+and+install) installed on your computer system?
 
 Please send love and feedback! :) [@bentbot](http://liamhogan.ca)
