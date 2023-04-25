@@ -3,8 +3,7 @@
 /**
 * Title: Talking AI Script
 * Author: L. Hogan <bentbot@outlook.com>
-* Date Created: April 18, 2023
-* Last Updated: April 25, 2023
+* Date Created: April 18, 2023 * Last Updated: April 25, 2023
 * References: https://chat.openai.com/ https://cloud.google.com/text-to-speech
 * Requirements: OpenAI API Key, Google TTS API Key, afplay / ffmpeg
 *
@@ -20,10 +19,9 @@
 **/
 
 // $ export OPEN_AI_API_KEY="your-key-here"
-$openai_api_key = 'OPEN_API_KEY';//OPEN_API_KEY
+$openai_api_key = 'OPEN_API_KEY';
 
-$env_open_ai=getenv('OPEN_AI_API_KEY');
-if(isset($env_open_ai)&&$env_open_ai!='')$openai_api_key=$env_open_ai;
+if(getenv("OPEN_AI_API_KEY") !== false)$openai_api_key=getenv('OPEN_AI_API_KEY');
 global $filters;
 $filters = array_fill(0, 3, null);
 for($i = 1; $i < $argc; $i++) {
@@ -94,10 +92,9 @@ if(isset($response)){
 function read($text,$language,$voice,$pitch,$speakingRate,$vol,$file) {
 	
 	// $ export GOOGLE_TTS_KEY="your-key-here";
-	$google_api_key = "GOOGLE_API_KEY"; //GOOGLE_API_KEY
+	$google_api_key = "GOOGLE_API_KEY";
 
-	$env_google_tts=getenv('GOOGLE_TTS_KEY');
-	if(isset($env_google_tts)&&$env_google_tts!='')$google_api_key=$env_google_tts;
+	if(getenv("GOOGLE_TTS_KEY") !== false)$google_api_key=getenv("GOOGLE_TTS_KEY");
 	if($voice&&$voice!='0'&&$voice!='false'&&$file&&$file!='false'&&$file!='0') {
 		$filename = str_replace(' ', '_', strtolower($file)).'.mp3';
 		$myfile = fopen($filename, "w") or die("Unable to open file!");
