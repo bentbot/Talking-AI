@@ -19,7 +19,7 @@ Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
  export GOOGLE_TTS_KEY="your-tts-key"
  export OPEN_AI_API_KEY="your-api-key"
  ```
-Modify environment variables permanently (appent to `~/.profile` on MacOS):
+*Modify* environment variables permanently (appent to `~/.profile` on MacOS):
  ```
  sudo nano ~/.profile
   set GOOGLE_TTS_KEY="your-tts-key"
