@@ -3,18 +3,27 @@
 Command Line PHP Script that that talks back to you! Powered by: ChatGPT + Google Speech Synthesis. 
 
 ## Simple Talking AI in the Command Line
- 1. Go to [Google Cloud Console](https://console.cloud.google.com/) and [OpenAI API Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
- 2. Open the script `nano ./Speaking_AI.php` and find & replace the two API key variables: `OPEN_API_KEY` & `GOOGLE_API_KEY`
+ 1. Go to [Google Cloud Console](https://console.cloud.google.com/) and [OpenAI API 
+Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
+ 2. Set the 2 environment variables as described in the Installation section or alternatively edit the PHP script 
+`Speaking_AI.php` find & replace the API key strings `OPEN_API_KEY` & `GOOGLE_API_KEY`.
  3. Open `ai` with `nano ./ai` and customize your AI's voice characteristics. See the **Chatting** section.
  4. Modify the `./` in the `ai` file with the current working directory or the filepath to the PHP file.
- 5. Install `ai` with the command `chmod +x ./ai;` and copy it into your local `bin` folder `sudo cp ./ai /usr/local/bin;` 
+ 5. Install `ai` with the command `chmod +x ./ai;` and copy it into your local `bin` folder `sudo cp ./ai 
+/usr/local/bin;` 
  6. Run it directly from the command line: `ai bake chocolate chip cookies`
 
 ***Installation:***
+Set the environmental variables or edit the PHP file.
+ ```
+  export GOOGLE_TTS_KEY="your-tts-key"
+  export OPEN_AI_API_KEY="your-api-key"
+ ```
+
  ```
 git clone https://github.com/bentbot/Talking-AI.git
 cd Talking-AI
-nano ./Speaking_AI.php ai
+export AI_PATH=`pwd`
 chmod +x ./ai
 sudo cp ./ai /usr/local/bin
 ai hello world
@@ -53,9 +62,11 @@ admin@MacBook AI Generated Code % ai --help
 
 Just run the PHP script with regular PHP notation.
 
-      php Speaking_AI.php "Ask me a question..." [prompt] [pitch 0.25-4] [speaking rate] [volume 0-1] [voice] [language]
+      php Speaking_AI.php "Ask me a question..." [prompt] [pitch 0.25-4] [speaking rate] [volume 0-1] [voice] 
+[language]
 
-*Please note that some answers that the AI may provide could include computer code and may not be considered short enough to synthesize to speech. Therefore, long text will sometimes appear and audio may not play.*
+*Please note that some answers that the AI may provide could include computer code and may not be considered short 
+enough to synthesize to speech. Therefore, long text will sometimes appear and audio may not play.*
 
 ### Example Requests
 
@@ -68,8 +79,10 @@ Just run the PHP script with regular PHP notation.
 
 ### Troubleshooting
  - Make sure all required dependencies (`ai`, `afplay`, `ffplay`) are located in your local system `bin` folder
- - Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready in order to hear the voices.
- - Make sure you've signed up for [Google Text-To-Speech Console](https://console.cloud.google.com/) and [OpenAI ChatGPT API](https://platform.openai.com/account/api-keys) access systems and inserted your API keys.
+ - Please make sure you have `afplay` or `ffplay` by [ffmpeg](https://ffmpeg.org/download.html) installed and ready 
+in order to hear the voices.
+ - Make sure you've signed up for [Google Text-To-Speech Console](https://console.cloud.google.com/) and [OpenAI 
+ChatGPT API](https://platform.openai.com/account/api-keys) access systems and inserted your API keys.
  - Do you have [PHP](https://www.google.com/search?q=php+download+and+install) installed on your computer system?
 
 ### Available Voices (en-US)
@@ -79,8 +92,8 @@ Just run the PHP script with regular PHP notation.
  - en-US-News-K (thru N)
  - en-US-Standard-A (thru J)
  - Use `--voices` to view the full list of English voices.
- - Additional voices & languages can be found and tried on [Google's TTS Demo](https://cloud.google.com/text-to-speech).
+ - Additional voices & languages can be found and tried on [Google's TTS 
+Demo](https://cloud.google.com/text-to-speech).
+cli-ai cli ai terminal cmd shell power-shell google voice openai chat artificial intelligence command-line interface
 
 Please send love and feedback! :) [@bentbot](http://liamhogan.ca)
-
-Tags: cli-ai cli ai terminal cmd shell power-shell google voice openai chat artificial intelligence command-line interface
