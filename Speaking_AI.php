@@ -3,22 +3,17 @@
 /**
 * Title: Talking AI Script
 * Author: L. Hogan <bentbot@outlook.com>
-* Date Created: April 18, 2023 * Last Updated: April 25, 2023
+* Date Created: April 18, 2023
+* Last Updated: April 25, 2023
 * References: https://chat.openai.com/ https://cloud.google.com/text-to-speech
 * Requirements: OpenAI API Key, Google TTS API Key, afplay / ffmpeg
-*
-* Installation:
-*  $ export OPEN_AI_API_KEY="your-key-here"
-*  $ export GOOGLE_TTS_KEY="your-key-here";
-*
 * Description:
 *  Run this script with regular PHP notation. Ex.
-*	$ php Speaking_AI.php [chat 'Ask me a question...'] [pitch 0.25-4] [speakingRate] [volume 0-1] [voice] [language]
+*	$ php Speaking_AI.php [chat 'Ask me a question...'] [pitch 0.25-4] [speakingRate 0-2] [volume 0-1] [voice] [language]
 *  Or move ./ai to /usr/local/bin to be able to run with the shortcut. Ex.
 *   $ ai tell me the top ten hair bands of the seventies
 **/
 
-// $ export OPEN_AI_API_KEY="your-key-here"
 $openai_api_key = 'OPEN_API_KEY';
 
 if(getenv("OPEN_AI_API_KEY") !== false) {
@@ -36,6 +31,7 @@ $volume = isset($filters[3])?$filters[3]:0.60556;
 $voice = isset($filters[4])?$filters[4]:'en-US-Neural2-H';
 $file = isset($filters[5])?$filters[5]:'ai_speaking';
 $language = isset($filters[6])?$filters[6]:'en-us';
+$muting = ( $pitch === false || $speakingRate === false || $volume === false ) ? true : false;
 if(!$prompt||$prompt==""||$prompt=="'-h'"||$prompt=="'--help'") {
 	echo("  Run the script with regular script notation. Example:\n");
 	echo("   ai --voices [see all voices available]\n");
@@ -83,9 +79,16 @@ if(isset($response)){
 	$data = json_decode($response, true);
 	if(isset($data)){
 		if(isset($data['choices'][0]['message'])){
-				$text = $data['choices'][0]['message']['content'];
-				echo("\n	".$text."\n\n");
+
+			// print_r($data); // Raw AI Data
+
+			$text = $data['choices'][0]['message']['content'];
+			$read_lines=str_replace('- ', ' ... - ',$text);
+			echo("\n	".$text."\n\n");
+
+			if (!$muting) {
 				read($text,$language,$voice,$pitch,$speakingRate,$volume,$file);
+			}
 		} else {
 			print_r($data);
 		}
@@ -93,7 +96,6 @@ if(isset($response)){
 }
 function read($text,$language,$voice,$pitch,$speakingRate,$vol,$file) {
 	
-	// $ export GOOGLE_TTS_KEY="your-key-here";
 	$google_api_key = "GOOGLE_API_KEY";
 
 	if(getenv("GOOGLE_TTS_KEY") !== false) {
