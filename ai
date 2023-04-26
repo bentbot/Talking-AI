@@ -1,6 +1,7 @@
 #!/bin/bash
 str="'$*'"
 
+# Replace $AI_PATH with the full path to the PHP file.
 php "$AI_PATH/Speaking_AI.php" "$str" 0.87 0.9 0.60556 "en-US-Neural2-H";
 
 #  TIP: Update '/../' to the full path of the PHP file
