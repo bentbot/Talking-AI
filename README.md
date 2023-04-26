@@ -30,7 +30,7 @@ Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
 git clone https://github.com/bentbot/Talking-AI.git
 cd Talking-AI
 export AI_PATH=`pwd`
-echo "set AI_PATH=`pwd`" >> ~/.profile
+echo set AI_PATH=\"`pwd`\" >> ~/.profile
 chmod +x ./ai
 sudo cp ./ai /usr/local/bin
 ai hello world
