@@ -13,9 +13,13 @@ Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
 
 ## Installation
 
-1. Set the by editing the PHP:
+1. Get ahold of these two keys:
+```
+OPEN_API_KEY
+GOOGLE_API_KEY
+```
 
-2. Clone and install the AI:
+2. Clone and install the AI by replacing those variables:
  ```
 git clone https://github.com/bentbot/Talking-AI.git
 cd Talking-AI
