@@ -4,93 +4,103 @@
 * Title: Talking AI Script
 * Author: L. Hogan <bentbot@outlook.com>
 * Date Created: April 18, 2023
-* Last Updated: April 25, 2023
+* Last Updated: April 27, 2023
 * References: https://chat.openai.com/ https://cloud.google.com/text-to-speech
 * Requirements: OpenAI API Key, Google TTS API Key, afplay / ffmpeg
-* Description:
-*  Run this script with regular PHP notation. Ex.
-*	$ php Speaking_AI.php [chat 'Ask me a question...'] [pitch 0.25-4] [speakingRate 0-2] [volume 0-1] [voice] [language]
-*  Or move ./ai to /usr/local/bin to be able to run with the shortcut. Ex.
-*   $ ai tell me the top ten hair bands of the seventies
 **/
 
-$openai_api_key = 'OPEN_API_KEY';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-if(getenv("OPEN_AI_API_KEY") !== false) {
-	$openai_api_key=getenv('OPEN_AI_API_KEY');
-}
+global $said;
 global $filters;
-$filters = array_fill(0, 3, null);
-for($i = 1; $i < $argc; $i++) {
-	$filters[$i - 1] = $argv[$i];
+if(isset( $argc )) {
+	$filters = array_fill(0, 3, null);
+	for($i = 1; $i < $argc; $i++) {
+		$filters[$i - 1] = $argv[$i];
+	}
 }
-$prompt = isset($filters[0])?$filters[0]:false;
-$pitch = isset($filters[1])?$filters[1]:0.87;
-$speakingRate = isset($filters[2])?$filters[2]:0.9;
-$volume = isset($filters[3])?$filters[3]:0.60556;
-$voice = isset($filters[4])?$filters[4]:'en-US-Neural2-H';
-$file = isset($filters[5])?$filters[5]:'ai_speaking';
-$language = isset($filters[6])?$filters[6]:'en-us';
+$prompt = (isset($filters[0]))?$filters[0]:(isset($_REQUEST['prompt'])?$_REQUEST['prompt']:false);
+$pitch = (isset($filters[1]))?$filters[1]:(isset($_REQUEST['pitch'])?$_REQUEST['pitch']:0.87);
+$speakingRate = (isset($filters[2]))?$filters[2]:(isset($_REQUEST['speakingRate'])?$_REQUEST['speakingRate']:0.9);
+$volume = (isset($filters[3]))?$filters[3]:(isset($_REQUEST['volume'])?$_REQUEST['volume']:0.60556);
+$voice = (isset($filters[4]))?$filters[4]:(isset($_REQUEST['voice'])?$_REQUEST['voice']:'en-US-Neural2-H');
+$file = (isset($filters[5]))?$filters[5]:(isset($_REQUEST['file'])?$_REQUEST['file']:'ai_speaking');
+$language = (isset($filters[6]))?$filters[6]:(isset($_REQUEST['language'])?$_REQUEST['language']:'en-us');
 $muting = ( $pitch === false || $speakingRate === false || $volume === false ) ? true : false;
 if(!$prompt||$prompt==""||$prompt=="'-h'"||$prompt=="'--help'") {
-	echo("  Run the script with regular script notation. Example:\n");
-	echo("   ai --voices [see all voices available]\n");
-	echo("   ai [chat] [pitch] [rate] [vol] ['voice'] ['file_name']\n");
-	echo("      [chat] 'Ask for something here' \n");
-	echo("      [pitch] 0.9 / 1 / 1.3 / 2\n");
-	echo("      [speakingRate] 0.8 / 1 / 1.2 / 2.3\n");
-	echo("      [volume] 0.2 / 0.4 / 0.6 / 1\n");
-	echo("      [voice] en-US-Studio-M\n");
-	echo("      [filename] 'voice_file' [output the spoken audio to MP3]\n");
-	echo("      [language] en-us\n");
-	echo("  Examples:\n");
-	echo("   ai what is the sum of pi\n");
-	echo("   php Speaking AI.php --voices\n");
-	echo("   php ./Speaking\ AI.php \"where's pluto\" 1 1 1 'en-US-Neural2-H';\n");
-	echo("   ai --help\n");
-	exit();
+	if(isset( $argc )) {
+		echo("  Run the script with regular script notation. Example:\n");
+		echo("   ai --voices [see all voices available]\n");
+		echo("   ai [chat] [pitch] [rate] [vol] ['voice'] ['file_name']\n");
+		echo("      [chat] 'Ask for something here' \n");
+		echo("      [pitch] 0.9 / 1 / 1.3 / 2\n");
+		echo("      [speakingRate] 0.8 / 1 / 1.2 / 2.3\n");
+		echo("      [volume] 0.2 / 0.4 / 0.6 / 1\n");
+		echo("      [voice] en-US-Studio-M\n");
+		echo("      [filename] 'voice_file' [output the spoken audio to MP3]\n");
+		echo("      [language] en-us\n");
+		echo("  Examples:\n");
+		echo("   ai what is the sum of pi\n");
+		echo("   php Speaking AI.php --voices\n");
+		echo("   php ./Speaking\ AI.php \"where's pluto\" 1 1 1 'en-US-Neural2-H';\n");
+		echo("   ai --help\n");
+	}
 } else if ($prompt=="'--voices'") {
 	available_voices(false); exit();
 } else if ($voice=="'random'") {
 	$voice = available_voices(true);
 }
-$url = 'https://api.openai.com/v1/chat/completions';
-$post_data = [
-	"model"=>"gpt-3.5-turbo",
-		"messages"=>[[
-			"role"=> "user", 
-			"content"=> $prompt
-		]]
-];
-$curl = curl_init();
-curl_setopt_array($curl, array(
-	CURLOPT_URL => $url,
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_POST => true,
-	CURLOPT_POSTFIELDS => json_encode($post_data),
-	CURLOPT_HTTPHEADER => array(
-		'Content-Type: application/json',
-		'Authorization: Bearer ' . $openai_api_key,
-	),
-));
-$response = curl_exec($curl);
-curl_close($curl);
-if(isset($response)){
-	$data = json_decode($response, true);
-	if(isset($data)){
-		if(isset($data['choices'][0]['message'])){
 
-			// print_r($data); // Raw AI Data
+if( isset($prompt) && $prompt!=false ) post($prompt,$language,$voice,$pitch,$speakingRate,$volume,$file,$muting);
 
-			$text = $data['choices'][0]['message']['content'];
-			$read_lines=str_replace('- ', ' ... - ',$text);
-			echo("\n	".$text."\n\n");
+function post($prompt,$language,$voice,$pitch,$speakingRate,$volume,$file,$muting) {
 
-			if (!$muting) {
-				read($text,$language,$voice,$pitch,$speakingRate,$volume,$file);
+	$openai_api_key = 'OPEN_API_KEY';
+
+	if(getenv("OPEN_AI_API_KEY")!==false) $openai_api_key=getenv('OPEN_AI_API_KEY');
+	$url = 'https://api.openai.com/v1/chat/completions';
+	$post_data = [
+		"model"=>"gpt-3.5-turbo",
+			"messages"=>[[
+				"role"=> "user", 
+				"content"=> $prompt
+			]]
+	];
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_POST => true,
+		CURLOPT_POSTFIELDS => json_encode($post_data),
+		CURLOPT_HTTPHEADER => array(
+			'Content-Type: application/json',
+			'Authorization: Bearer ' . $openai_api_key,
+		),
+	));
+	$response = curl_exec($curl);
+	curl_close($curl);
+	if(isset($response)){
+		$data = json_decode($response, true);
+		if(isset($data)){
+			if(isset($data['choices'][0]['message'])){
+
+				// print_r($data); // Raw AI Data
+
+				$text = $data['choices'][0]['message']['content'];
+				$read_lines=str_replace('- ', ' ... - ',$text);
+				echo("\n	".$text."\n\n");
+
+				if (!$muting) {
+					read($read_lines,$language,$voice,$pitch,$speakingRate,$volume,$file);
+				}
+
+				$said = true;
+				exit();
+			} else {
+				print_r($data);
 			}
-		} else {
-			print_r($data);
 		}
 	}
 }
@@ -98,9 +108,7 @@ function read($text,$language,$voice,$pitch,$speakingRate,$vol,$file) {
 	
 	$google_api_key = "GOOGLE_API_KEY";
 
-	if(getenv("GOOGLE_TTS_KEY") !== false) {
-		$google_api_key=getenv("GOOGLE_TTS_KEY");
-	}
+	if(getenv("GOOGLE_TTS_KEY")!==false) $google_api_key=getenv("GOOGLE_TTS_KEY");
 	if($voice&&$voice!='0'&&$voice!='false'&&$file&&$file!='false'&&$file!='0') {
 		$filename = str_replace(' ', '_', strtolower($file)).'.mp3';
 		$myfile = fopen($filename, "w") or die("Unable to open file!");
@@ -172,3 +180,252 @@ function available_voices($rand) {
 		foreach ($voices as $key => $value) echo("  ".$value."\n");
 	}
 }
+if(!$said) {
+	$current_time = time();
+	foreach(glob("./*.mp3") as $file) {
+		$file_creation_time = filemtime($file);
+		$time_diff = $current_time - $file_creation_time;
+		if ($time_diff >= 86400) unlink($file);
+	}
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+	<style type="text/css">
+		body,html {
+			margin: 0;
+		}
+		.readout {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 28%;
+			padding: 0 2% 0% 2%;
+		}
+		.userinput {
+			padding: 5% 1%;
+			position: absolute;
+			bottom:0;
+			left:0;
+			right:0;
+			height:20%;
+			overflow: hidden;
+		}
+		textarea {
+			width: 83%;
+			height: 97%;
+			padding: 1.5%;
+			font-family: 'Helvetica', system-ui;
+			font-size: 18px;
+			font-weight: 300;
+			line-height: 28px;
+			border: 5px solid #dadada;
+			border-radius: 16px;
+			background: #f4f4f4;
+		}
+		.ask_button {
+			border-radius: 8px;
+			height: auto;
+			padding: 29% 0;
+			background: #1f57d7;
+			float: right;
+			width: 100%;
+			color: white;
+			text-align: center;
+			font-family: 'Helvetica', system-ui;
+			font-weight: 600;
+			text-shadow: 1px 1px 1px BLACK;
+			cursor: pointer;
+    		border: 2px solid #dadada; 
+		}
+		.ask_button:hover {
+			background: #0b70eb;
+    	}
+		.ask_button:active {
+			background: #0b70eb;
+    		border: 2px solid #a1bbff; 
+    	}
+		.mute_button,.save_button {
+    		border: 2px solid #dadada; 
+			border-radius: 8px;
+			height: auto;
+			padding: 9% 0;
+			background: #ededed;
+			float: right;
+			width: 100%;
+			color: #212121;
+			text-align: center;
+			font-family: 'Helvetica', system-ui;
+			font-weight: 300;
+			cursor: pointer;
+			margin-top: 3%;
+		}
+		.mute_button:hover {
+			background: #E3F2FD;
+			border-color: #bbcad7;
+		}
+		.save_button:hover {
+			background: #fcfdef;
+			border: 2px solid #CDDC39;
+		}
+		.mute_button:active {
+			background: #E3F2FD;
+			border-color: #bbcad7;
+		}
+		.save_button:active {
+			background: #fcfdef;
+			border: 2px solid #CDDC39;
+		}
+		.btns {
+		    width: 10.2%;
+		    float: right;
+		    height: 100%;
+		    margin-right: 1%;
+		}
+		li.answer {
+			font-family: 'Helvetica';
+			padding: 26px 14px;
+			border-bottom: 2px dashed #e4d8c9;
+			list-style: none;
+			line-height: 21.9px;
+			color: #272727;
+		}
+		.messages {
+			height: 100%;
+			overflow: auto;
+			margin: 0;
+			padding: 0;
+		}
+		i.Q {color: gray;}
+		.ask_prompt {
+			text-align: center;
+			font-family: 'Arial', sans-serif;
+			position: fixed;
+			letter-spacing: 0.3px;
+			left: 50%;
+			top: 10%;
+			transform: translate(-50%, 0px);
+			font-size: 22px;
+			opacity: 1;
+			text-shadow: 1px 1px 1px #000000;
+			color: #ffffff6b;
+			z-index: 3;
+    }
+    .loader {
+    	pointer-events: none;
+    	opacity: 0;
+		left: 50%;
+		top: 26.6%;
+		transform: translate(-50%, 0px);
+		position: fixed;
+    }
+    .a {
+    	padding-left: 3.5%;
+    }
+    .w {
+    	margin-left: 5px;
+    }
+    a.about {
+    	color: #3e3e3e;
+		font-size: 10px;
+		font-family: 'Helvetica', sans-serif;
+		text-align: center;
+		width: 100%;
+		display: inline-block;
+    }
+	</style>
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			var lastMessage, lastQuery, audio = $('#audio');
+			$('.html_input').focus().keyup((e)=>{
+				if(e.key=='Enter') {
+					e.preventDefault();
+					ask();
+				}
+			});
+			var muted = false;
+			$('.mute_button').html(muted?'Voice On':'Mute');
+			$('.mute_button').click((e)=>{
+				muted = muted?false:true;
+				if(muted){
+					audio[0].volume = 0;
+				} else {
+					audio[0].volume = <?php echo $volume; ?>;
+				}
+				$('.mute_button').html(muted?'Voice On':'Mute');
+			})
+			$('.save_button').click((e)=>{
+				if(lastMessage){
+					save(lastMessage,lastQuery);
+				} else {
+					ask();
+				}
+			});
+			$('.ask_button').click((e)=>{ask();});
+			var href = window.location.href;
+			var dir = href.substring(0, href.lastIndexOf('/')) + "/";
+			function ask(save) {
+				var words = $('.html_input').val();
+				setTimeout( () => { $('.loader').fadeIn(); }, 500 );
+				if(!words||words=='')return;
+				$('.ask_prompt').fadeOut();
+				var rand = Math.floor(Math.random() * 999997);
+				
+				$('.html_input').val('').focus();
+				$.ajax({
+					method: "POST",
+					url: href,
+					data: { 
+						prompt: words,
+						file: 'web_'+rand
+					}
+				}).done(function( msg ) {
+					if(save)save(msg,words);
+					lastMessage=msg;lastQuery=words;
+					msg=msg.replace(/\n/g, "<br />");
+					$('.loader').fadeOut();
+					$('.messages').append("<li class='answer'><i class='Q'>Query: </i>  <b class='w'>"+words+"</b><br /><div class='a'>"+msg+"</div></li>");
+					$('#mp3Source').attr('src',dir+'web_'+rand+'.mp3');
+					audio[0].volume = muted ? 0 : <?php echo $volume; ?>;
+					audio[0].pause();
+					audio[0].load();
+					audio[0].oncanplaythrough = audio[0].play();
+				});
+			}
+			function save(msg,file) {
+				var link = document.createElement('a');
+				link.href = 'data:text/plain;charset=UTF-8,' + escape(msg);
+				link.download = file+'ai.txt';
+				link.click();
+			}
+		});
+	</script>
+	<title>AI Search</title>
+</head>
+<body>
+	<div class="ask_prompt">Ask the AI anything...</div>
+	<img class="loader" src="loading.gif">
+	<div class="readout">
+		<ul class="messages"></ul>
+	</div>
+	<div class="userinput">
+		<textarea placeholder="Place your search query here..." class="html_input" type="text" name="html_input"></textarea>
+		<div class="btns">
+			<div class="ask_button">Ask the AI</div>
+			<div class="save_button">Save</div>
+			<div class="mute_button">Mute</div>
+			<a class="about" href="https://github.com/bentbot/Talking-AI" target="_blank">Learn About the AI</a>
+		</div>
+	</div>
+	<audio id="audio">
+		<source id="mp3Source" type="audio/mp3" />
+	</audio>
+</body>
+</html>
+<?php } ?>
