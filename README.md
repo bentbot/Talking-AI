@@ -11,7 +11,7 @@ Keys](https://platform.openai.com/account/api-keys) to generate API credentials.
 /usr/local/bin;` 
  5. Run it directly from the command line: `ai bake chocolate chip cookies`
 
-## Installation
+## Command-Line Installation
 
 1. Get ahold of these two keys:
 ```
@@ -38,6 +38,21 @@ $ ai joke
  
  ```
 Hahaha :laughing:
+
+## Web Server Installation
+
+1. Get ahold of these two keys:
+```
+OPEN_API_KEY
+GOOGLE_API_KEY
+```
+2. Clone and install the AI by replacing those variables:
+ ```
+git clone https://github.com/bentbot/Talking-AI.git
+cd Talking-AI
+nano Speaking_AI.php 
+ ```
+3. Upload the AI to your server with FTP. Modify the directory the PHP file resides in so it is chmod mode 777. View it in your browser.
 
 ## Examples
 
