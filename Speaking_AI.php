@@ -319,11 +319,11 @@ if(!$said) {
     }
     .loader {
     	pointer-events: none;
-    	opacity: 0;
-		left: 50%;
-		top: 26.6%;
-		transform: translate(-50%, 0px);
-		position: fixed;
+    	display: none;
+	left: 50%;
+	top: 26.6%;
+	transform: translate(-50%, 0px);
+	position: fixed;
     }
     .a {
     	padding-left: 3.5%;
