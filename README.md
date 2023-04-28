@@ -1,6 +1,6 @@
 # :sparkle: Talking AI Console Script
 
-Command Line PHP Script that that talks back to you! It can be used to help solve complex problems when the solution is too challenging to too hard to find. It can help you accomplish simple tasks and write code. 
+The AI program that talks back to you! It can be used to help solve complex problems when the solution is too challenging to too hard to find. It can help you accomplish simple tasks and write code. Please try the talking AI online: **[AI Search](http://liamhogan.ca/ai/)**.
 
 ## Simple Talking AI in the Command Line
  1. Go to [Google Cloud Console](https://console.cloud.google.com/) and [OpenAI API 
