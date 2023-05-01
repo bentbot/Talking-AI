@@ -4,12 +4,12 @@
 * Title: Talking AI Script
 * Author: L. Hogan <bentbot@outlook.com>
 * Date Created: April 18, 2023
-* Last Updated: April 27, 2023
+* Last Updated: May 1st, 2023
 * References: https://chat.openai.com/ https://cloud.google.com/text-to-speech
 * Requirements: OpenAI API Key, Google TTS API Key, afplay / ffmpeg
 **/
 
-$openai_api_key = 'OPEN_API_KEY';
+$openai_api_key = "OPEN_API_KEY";
 $google_api_key = "GOOGLE_API_KEY";
 
 $mute = false;
