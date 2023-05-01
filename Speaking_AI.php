@@ -207,8 +207,9 @@ function read($text,$language,$voice,$pitch,$speakingRate,$vol,$file,$google_api
 		curl_close( $google_api_ch );
 		$content = json_decode($result);
 		if(isset($content->error)) {
-			if($content->error->message!='This request contains sentences that are too long.')
+			if(!str_contains($content->error->message,'This request contains sentences that are too long.')){
 				if($vol>0)echo($content->error->message);
+			}
 		} else if($file&&$file!='false'&&$file!='0') {
 			$base64 = $content->audioContent;
 			$mp3 = base64_decode($base64);
