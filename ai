@@ -2,10 +2,9 @@
 str="'$*'"
 
 # Replace $AI_PATH with the full path to the PHP file.
-php "$AI_PATH/Speaking_AI.php" "$str" 0.87 0.9 0.60556 "en-US-Neural2-H";
+php "$AI_PATH/Speaking_AI.php" "$str";
 
-#  TIP: Update '/../' to the full path of the PHP file
-#  $ Put ai in your local bin folder: /usr/local/bin/ai;
+#  Put in in your local bin folder: /usr/local/bin/ai;
 #  Customize the AI's pitch, speaking rate, volume, voice, language:
 #   ai --voices [to see all voices available]
 #   ai [chat] "$str" [pitch] 1 [speakingRate] 1 [volume] 0.5 [voice] 'en-US-Studio-M'
